@@ -3,8 +3,23 @@
     <title>chartjs example</title>
   </head>
   <body>
-    <div>
-      <canvas id="myChart"></canvas>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div style="width: 50%">
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <div style="height: 200px"></div>
+
+      <div style="width: 50%">
+        <canvas id="myChart2"></canvas>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,6 +28,7 @@
 
     <script>
       const ctx = document.getElementById("myChart");
+      const ctx2 = document.getElementById("myChart2");
 
       const data = {
         datasets: [
@@ -49,10 +65,6 @@
           },
           {
             type: "line",
-            interaction: {
-              intersect: false,
-              axis: "x",
-            },
             data: [
               { x: moment("2020-01-02"), y: 2340000000 },
               { x: moment("2020-02-01"), y: 2340000000 },
@@ -79,17 +91,15 @@
               { x: moment("2021-11-01"), y: 2500000000 },
               { x: moment("2021-12-01"), y: 2500000000 },
             ],
-            fill: false,
-            stepped: true,
             borderColor: "blue",
             label: "A업체 하한가",
+            tension: 0.4,
+            fill: 1,
+            backgroundColor: "rgba(255, 99, 132 ,0.8)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
           },
           {
             type: "line",
-            interaction: {
-              intersect: false,
-              axis: "x",
-            },
             data: [
               { x: moment("2020-01-02"), y: 2000000000 },
               { x: moment("2020-02-01"), y: 2000000000 },
@@ -116,12 +126,258 @@
               { x: moment("2021-11-01"), y: 2745000000 },
               { x: moment("2021-12-01"), y: 2745000000 },
             ],
-            fill: false,
-            stepped: true,
-            borderColor: "lightblue",
             label: "A업체 상한가",
+            tension: 0.4,
+            backgroundColor: "rgba(255, 99, 132 ,0.8)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 2340000000 },
+              { x: moment("2020-02-01"), y: 2340000000 },
+              { x: moment("2020-03-01"), y: 2700000000 },
+              { x: moment("2020-04-01"), y: 2700000000 },
+              { x: moment("2020-05-01"), y: 1400000000 },
+              { x: moment("2020-06-01"), y: 2000000000 },
+              { x: moment("2020-07-01"), y: 2000000000 },
+              { x: moment("2020-08-01"), y: 2000000000 },
+              { x: moment("2020-09-01"), y: 2000000000 },
+              { x: moment("2020-10-01"), y: 2800000000 },
+              { x: moment("2020-11-01"), y: 2800000000 },
+              { x: moment("2020-12-01"), y: 2800000000 },
+              { x: moment("2021-01-01"), y: 810000000 },
+              { x: moment("2021-02-01"), y: 630000000 },
+              { x: moment("2021-03-01"), y: 730000000 },
+              { x: moment("2021-04-01"), y: 730000000 },
+              { x: moment("2021-05-01"), y: 710000000 },
+              { x: moment("2021-06-01"), y: 650000000 },
+              { x: moment("2021-07-01"), y: 1880000000 },
+              { x: moment("2021-08-01"), y: 1830000000 },
+              { x: moment("2021-09-01"), y: 1415000000 },
+              { x: moment("2021-10-01"), y: 2560000000 },
+              { x: moment("2021-11-01"), y: 2500000000 },
+              { x: moment("2021-12-01"), y: 2500000000 },
+            ],
+            label: "B업체 하한가",
+            tension: 0.7,
+            backgroundColor: "rgb(115, 147, 179)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 2900000000 },
+              { x: moment("2020-02-01"), y: 2900000000 },
+              { x: moment("2020-03-01"), y: 3450000000 },
+              { x: moment("2020-04-01"), y: 3450000000 },
+              { x: moment("2020-05-01"), y: 2500000000 },
+              { x: moment("2020-06-01"), y: 2900000000 },
+              { x: moment("2020-07-01"), y: 2900000000 },
+              { x: moment("2020-08-01"), y: 2900000000 },
+              { x: moment("2020-09-01"), y: 2600000000 },
+              { x: moment("2020-10-01"), y: 3200000000 },
+              { x: moment("2020-11-01"), y: 3200000000 },
+              { x: moment("2020-12-01"), y: 3200000000 },
+              { x: moment("2021-01-01"), y: 940000000 },
+              { x: moment("2021-02-01"), y: 760000000 },
+              { x: moment("2021-03-01"), y: 860000000 },
+              { x: moment("2021-04-01"), y: 860000000 },
+              { x: moment("2021-05-01"), y: 840000000 },
+              { x: moment("2021-06-01"), y: 780000000 },
+              { x: moment("2021-07-01"), y: 2010000000 },
+              { x: moment("2021-08-01"), y: 1960000000 },
+              { x: moment("2021-09-01"), y: 1545000000 },
+              { x: moment("2021-10-01"), y: 2690000000 },
+              { x: moment("2021-11-01"), y: 2630000000 },
+              { x: moment("2021-12-01"), y: 2630000000 },
+            ],
+            label: "B업체 상한가",
+            tension: 0.7,
+            backgroundColor: "rgb(115, 147, 179)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
           },
         ],
+      };
+
+      const data2 = {
+        datasets: [
+          {
+            type: "scatter",
+            data: [
+              { x: moment("2020-01-01"), y: 610000000 },
+              { x: moment("2020-02-01"), y: 770000000 },
+              { x: moment("2020-03-01"), y: 780000000 },
+              { x: moment("2020-04-01"), y: 900000000 },
+              { x: moment("2020-05-01"), y: 880000000 },
+              { x: moment("2020-06-01"), y: 920000000 },
+              { x: moment("2020-07-01"), y: 920000000 },
+              { x: moment("2020-08-01"), y: 920000000 },
+              { x: moment("2020-09-01"), y: 920000000 },
+              { x: moment("2020-10-01"), y: 920000000 },
+              { x: moment("2020-11-01"), y: 930000000 },
+              { x: moment("2020-12-01"), y: 770000000 },
+              { x: moment("2021-01-01"), y: 730000000 },
+              { x: moment("2021-02-01"), y: 890000000 },
+              { x: moment("2021-03-01"), y: 900000000 },
+              { x: moment("2021-04-01"), y: 1020000000 },
+              { x: moment("2021-05-01"), y: 1000000000 },
+              { x: moment("2021-06-01"), y: 1040000000 },
+              { x: moment("2021-07-01"), y: 1040000000 },
+              { x: moment("2021-08-01"), y: 1040000000 },
+              { x: moment("2021-09-01"), y: 1040000000 },
+              { x: moment("2021-10-01"), y: 1040000000 },
+              { x: moment("2021-11-01"), y: 1050000000 },
+              { x: moment("2021-12-01"), y: 890000000 },
+            ],
+            backgroundColor: "rgb(255, 99, 132)",
+            label: "실거래가",
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 560000000 },
+              { x: moment("2020-02-01"), y: 727000000 },
+              { x: moment("2020-03-01"), y: 730000000 },
+              { x: moment("2020-04-01"), y: 857000000 },
+              { x: moment("2020-05-01"), y: 830000000 },
+              { x: moment("2020-06-01"), y: 877000000 },
+              { x: moment("2020-07-01"), y: 870000000 },
+              { x: moment("2020-08-01"), y: 877000000 },
+              { x: moment("2020-09-01"), y: 870000000 },
+              { x: moment("2020-10-01"), y: 877000000 },
+              { x: moment("2020-11-01"), y: 880000000 },
+              { x: moment("2020-12-01"), y: 727000000 },
+              { x: moment("2021-01-01"), y: 650000000 },
+              { x: moment("2021-02-01"), y: 810000000 },
+              { x: moment("2021-03-01"), y: 820000000 },
+              { x: moment("2021-04-01"), y: 940000000 },
+              { x: moment("2021-05-01"), y: 920000000 },
+              { x: moment("2021-06-01"), y: 960000000 },
+              { x: moment("2021-07-01"), y: 960000000 },
+              { x: moment("2021-08-01"), y: 960000000 },
+              { x: moment("2021-09-01"), y: 960000000 },
+              { x: moment("2021-10-01"), y: 970000000 },
+              { x: moment("2021-11-01"), y: 970000000 },
+              { x: moment("2021-12-01"), y: 810000000 },
+            ],
+            borderColor: "blue",
+            label: "A업체 하한가",
+            tension: 0.4,
+            fill: 1,
+            backgroundColor: "rgba(255, 99, 132 ,0.8)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 645000000 },
+              { x: moment("2020-02-01"), y: 805000000 },
+              { x: moment("2020-03-01"), y: 815000000 },
+              { x: moment("2020-04-01"), y: 935000000 },
+              { x: moment("2020-05-01"), y: 915000000 },
+              { x: moment("2020-06-01"), y: 955000000 },
+              { x: moment("2020-07-01"), y: 955000000 },
+              { x: moment("2020-08-01"), y: 955000000 },
+              { x: moment("2020-09-01"), y: 955000000 },
+              { x: moment("2020-10-01"), y: 955000000 },
+              { x: moment("2020-11-01"), y: 965000000 },
+              { x: moment("2020-12-01"), y: 805000000 },
+              { x: moment("2021-01-01"), y: 800000000 },
+              { x: moment("2021-02-01"), y: 960000000 },
+              { x: moment("2021-03-01"), y: 970000000 },
+              { x: moment("2021-04-01"), y: 1090000000 },
+              { x: moment("2021-05-01"), y: 1070000000 },
+              { x: moment("2021-06-01"), y: 1110000000 },
+              { x: moment("2021-07-01"), y: 1110000000 },
+              { x: moment("2021-08-01"), y: 1110000000 },
+              { x: moment("2021-09-01"), y: 1110000000 },
+              { x: moment("2021-10-01"), y: 1110000000 },
+              { x: moment("2021-11-01"), y: 1120000000 },
+              { x: moment("2021-12-01"), y: 960000000 },
+            ],
+            label: "A업체 상한가",
+            tension: 0.4,
+            backgroundColor: "rgba(255, 99, 132 ,0.8)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 522000000 },
+              { x: moment("2020-02-01"), y: 689000000 },
+              { x: moment("2020-03-01"), y: 692000000 },
+              { x: moment("2020-04-01"), y: 819000000 },
+              { x: moment("2020-05-01"), y: 792000000 },
+              { x: moment("2020-06-01"), y: 839000000 },
+              { x: moment("2020-07-01"), y: 832000000 },
+              { x: moment("2020-08-01"), y: 839000000 },
+              { x: moment("2020-09-01"), y: 832000000 },
+              { x: moment("2020-10-01"), y: 839000000 },
+              { x: moment("2020-11-01"), y: 842000000 },
+              { x: moment("2020-12-01"), y: 689000000 },
+              { x: moment("2021-01-01"), y: 630000000 },
+              { x: moment("2021-02-01"), y: 790000000 },
+              { x: moment("2021-03-01"), y: 800000000 },
+              { x: moment("2021-04-01"), y: 920000000 },
+              { x: moment("2021-05-01"), y: 900000000 },
+              { x: moment("2021-06-01"), y: 940000000 },
+              { x: moment("2021-07-01"), y: 940000000 },
+              { x: moment("2021-08-01"), y: 940000000 },
+              { x: moment("2021-09-01"), y: 940000000 },
+              { x: moment("2021-10-01"), y: 940000000 },
+              { x: moment("2021-11-01"), y: 950000000 },
+              { x: moment("2021-12-01"), y: 790000000 },
+            ],
+            label: "B업체 하한가",
+            tension: 0.7,
+            backgroundColor: "rgb(115, 147, 179)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
+          },
+          {
+            type: "line",
+            data: [
+              { x: moment("2020-01-02"), y: 715000000 },
+              { x: moment("2020-02-01"), y: 875000000 },
+              { x: moment("2020-03-01"), y: 885000000 },
+              { x: moment("2020-04-01"), y: 1005000000 },
+              { x: moment("2020-05-01"), y: 985000000 },
+              { x: moment("2020-06-01"), y: 1025000000 },
+              { x: moment("2020-07-01"), y: 1025000000 },
+              { x: moment("2020-08-01"), y: 1025000000 },
+              { x: moment("2020-09-01"), y: 1025000000 },
+              { x: moment("2020-10-01"), y: 1025000000 },
+              { x: moment("2020-11-01"), y: 1035000000 },
+              { x: moment("2020-12-01"), y: 875000000 },
+              { x: moment("2021-01-01"), y: 770000000 },
+              { x: moment("2021-02-01"), y: 930000000 },
+              { x: moment("2021-03-01"), y: 940000000 },
+              { x: moment("2021-04-01"), y: 1060000000 },
+              { x: moment("2021-05-01"), y: 1040000000 },
+              { x: moment("2021-06-01"), y: 1080000000 },
+              { x: moment("2021-07-01"), y: 1080000000 },
+              { x: moment("2021-08-01"), y: 1080000000 },
+              { x: moment("2021-09-01"), y: 1080000000 },
+              { x: moment("2021-10-01"), y: 1080000000 },
+              { x: moment("2021-11-01"), y: 1090000000 },
+              { x: moment("2021-12-01"), y: 930000000 },
+            ],
+            label: "B업체 상한가",
+            tension: 0.7,
+            backgroundColor: "rgb(115, 147, 179)",
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            fill: 1,
+          },
+        ],
+      };
+
+      const 억만금 = (number) => {
+        return number / 100000000;
       };
 
       const config = {
@@ -130,14 +386,29 @@
           responsive: true,
           plugins: {
             title: {
-              display: true,
+              display: false,
             },
             tooltip: {
-              mode: "index",
-              intersect: false,
+              mode: "point",
               callbacks: {
                 label: function (context) {
-                  return context.dataset.label + ": " + context.parsed.y;
+                  const index = context?.dataIndex;
+                  const 실거래가 = data.datasets[0]?.data[index];
+                  const A업체_하한가 = data.datasets[1]?.data[index].y;
+                  const A업체_상한가 = data.datasets[2]?.data[index].y;
+                  const B업체_하한가 = data.datasets[3]?.data[index].y;
+                  const B업체_상한가 = data.datasets[4]?.data[index].y;
+
+                  console.log(data.datasets[0]?.data[index]);
+                  console.log(data.datasets[1]?.data[index]);
+                  console.log(data.datasets[2]?.data[index]);
+
+                  return `${context.raw.x._i}: A업체: ${억만금(
+                    A업체_상한가
+                  )}억원 ~ ${억만금(A업체_하한가)}억원\n
+                  B:업체 ${억만금(B업체_상한가)}억원 ~ ${억만금(
+                    B업체_하한가
+                  )}억원`;
                 },
               },
             },
@@ -152,7 +423,58 @@
             y: {
               type: "linear",
               min: 620000000,
-              max: 3100000000,
+              max: 3900000000,
+              ticks: {
+                callback: function (value, index, values) {
+                  return value / 100000000 + "억";
+                },
+              },
+            },
+          },
+        },
+      };
+
+      const config2 = {
+        data: data2,
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+            },
+            tooltip: {
+              mode: "point",
+              intersect: false,
+              callbacks: {
+                label: function (context) {
+                  const index = context?.dataIndex;
+                  const 실거래가 = data2.datasets[0]?.data[index];
+                  const A업체_하한가 = data2.datasets[1]?.data[index].y;
+                  const A업체_상한가 = data2.datasets[2]?.data[index].y;
+                  const B업체_하한가 = data2.datasets[3]?.data[index].y;
+                  const B업체_상한가 = data2.datasets[4]?.data[index].y;
+
+                  return `${context.raw.x._i}: A업체: ${억만금(
+                    A업체_상한가
+                  )}억원 ~ ${억만금(A업체_하한가)}억원\n
+                  B:업체 ${억만금(B업체_상한가)}억원 ~ ${억만금(
+                    B업체_하한가
+                  )}억원`;
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              type: "time",
+              time: {
+                unit: "year",
+              },
+            },
+            y: {
+              type: "linear",
+              min: 620000000,
+              max: 1200000000,
               ticks: {
                 callback: function (value, index, values) {
                   return value / 100000000 + "억";
@@ -164,6 +486,7 @@
       };
 
       new Chart(ctx, config);
+      new Chart(ctx2, config2);
     </script>
   </body>
 </html>
